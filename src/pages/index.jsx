@@ -21,14 +21,14 @@ const Payment = () => {
           }}
         >
           <Tab.List className="flex flex-wrap flex-initial">
-            <Tab className="bg-white w-full p-4">
-              <div className="text-base mt-0.5 flex justify-between">
+            <Tab className="bg-white w-full p-4 mt-0.5">
+              <div className="text-base flex justify-between">
                 Visa...2725
                 {!activeTab && <IconCheck />}
               </div>
             </Tab>
-            <Tab className="bg-white w-full p-4">
-              <div className="text-base mt-0.5 flex justify-between">
+            <Tab className="bg-white w-full p-4 mt-0.5">
+              <div className="text-base flex justify-between">
                 Chuyển khoản ngân hàng
                 {activeTab && <IconCheck />}
               </div>
