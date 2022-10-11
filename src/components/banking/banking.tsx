@@ -20,9 +20,8 @@ export const Banking = () => {
       </div>
       <div className="flex-1 flex items-end w-full">
         <Button
-          className="w-full p-2.5"
+          className="w-full p-2.5 bg-amber-400"
           fontSize="bold"
-          bgColor="amber-400"
           onClick={() => setIsOpen(true)}
         >
           Tiến hành thanh toán

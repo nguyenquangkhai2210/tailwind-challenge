@@ -1,5 +1,5 @@
 import { Title } from "../title";
-import { IconCheck } from "../icons";
+import { IconCheckSuccess } from "../icons";
 import { DialogWrapper } from "./dialog-wrapper";
 
 import { DialogProps } from "./type";
@@ -11,7 +11,7 @@ export const Dialog = ({ isOpen, setIsOpen }: DialogProps) => {
     <DialogWrapper isOpen={isOpen} onClose={() => setIsOpen(false)}>
       <div className="w-full bg-white p-6 text-left align-middle shadow-xls">
         <div className="max-w-max px-2.5 py-3 bg-green-100 rounded-full">
-          <IconCheck />
+          <IconCheckSuccess />
         </div>
         <Title className="mt-4" size="2xl" color="gray-700">
           Thanh toán thành công
@@ -20,9 +20,8 @@ export const Dialog = ({ isOpen, setIsOpen }: DialogProps) => {
           Xin chân thành cảm ơn sự ủng hộ của Quý khách hàng
         </Text>
         <Button
-          className="w-full p-2.5"
+          className="w-full p-2.5 bg-amber-400"
           fontSize="bold"
-          bgColor="amber-400"
           onClick={() => setIsOpen(false)}
         >
           OK

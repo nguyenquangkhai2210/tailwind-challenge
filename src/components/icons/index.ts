@@ -1,1 +1,2 @@
-export { IconCheck } from "./check";
+export { IconCheckSuccess } from "./check-success";
+export { IconCheck } from "./check-default";
