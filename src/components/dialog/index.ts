@@ -1,1 +1,2 @@
-export { Dialog } from "./dialog";
+export { DialogSuccess } from "./dialog-success";
+export { DialogError } from "./dialog-error";

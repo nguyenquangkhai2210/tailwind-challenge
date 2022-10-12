@@ -1,11 +1,11 @@
 import React from "react";
 
-export type DialogProps = {
+export type SnackbarSuccessProps = {
   show: boolean;
-  onCloseDialog: () => void;
+  onCloseSnackbar: () => void;
 };
 
-export type DialogWrapperProps = {
+export type SnackbarWrapperProps = {
   show: boolean;
   onClose: () => void;
   children: React.ReactNode;

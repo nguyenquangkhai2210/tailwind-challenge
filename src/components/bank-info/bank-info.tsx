@@ -1,27 +1,41 @@
-import { Title } from "@/components/title";
-import { Text } from "@/components/text";
+import { BankInfoContent } from "./bank-info-content";
+import { SnackbarSuccess } from "@/components/snackbar";
+import { useState } from "react";
+import { BankInfoProps } from "./type";
+import { IconError, IconLoading } from "../icons";
+import { Text } from "../text";
 
-export const BankInfo = () => {
+export const BankInfo = ({ isLoading, data, error }: BankInfoProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  if (isLoading) {
+    return (
+      <div className="h-full flex justify-center">
+        <div className="flex items-center gap-3">
+          <IconLoading />
+          <Text>Tải dữ liệu ...</Text>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="h-full flex justify-center">
+        <div className="flex items-center gap-3">
+          <div className="max-w-max px-4 py-4 bg-red-100 rounded-full">
+            <IconError />
+          </div>
+          <Text> Đã có lỗi xảy ra. Vui lòng thử lại</Text>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
-      <Title className="px-1 py-1" size="xs">
-        Chi nhánh ngân hàng
-      </Title>
-      <Text className="px-1 pb-3">
-        Ngân hàng TMCP Việt Nam thịnh vượng (VPBank) Hội sở
-      </Text>
-      <Title className="px-1 py-1" size="xs">
-        Số tài khoản
-      </Title>
-      <Text className="px-1 pb-3">191415477</Text>
-      <Title className="px-1 py-1" size="xs">
-        Tên tài khoản
-      </Title>
-      <Text className="px-1 pb-3">Công ty cổ phần Be Group</Text>
-      <Title className="px-1 py-1" size="xs">
-        Nội dung chuyển tiền
-      </Title>
-      <Text className="px-1 pb-3">"Covid19"</Text>
+      <BankInfoContent onOpenSnackBar={setIsOpen} {...data} />
+      <SnackbarSuccess show={isOpen} onCloseSnackbar={() => setIsOpen(false)} />
     </>
   );
 };

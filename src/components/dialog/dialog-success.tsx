@@ -6,14 +6,14 @@ import { DialogProps } from "./type";
 import { Button } from "../button";
 import { Text } from "../text";
 
-export const Dialog = ({ isOpen, setIsOpen }: DialogProps) => {
+export const DialogSuccess = ({ show, onCloseDialog }: DialogProps) => {
   return (
-    <DialogWrapper isOpen={isOpen} onClose={() => setIsOpen(false)}>
+    <DialogWrapper show={show} onClose={onCloseDialog}>
       <div className="w-full bg-white p-6 text-left align-middle shadow-xls">
-        <div className="max-w-max px-2.5 py-3 bg-green-100 rounded-full">
+        <div className="max-w-max px-3.5 py-4 bg-green-100 rounded-full">
           <IconCheckSuccess />
         </div>
-        <Title className="mt-4" size="2xl" color="gray-700">
+        <Title className="mt-4" color="gray-700" size="2xl">
           Thanh toán thành công
         </Title>
         <Text className="my-3">
@@ -22,7 +22,7 @@ export const Dialog = ({ isOpen, setIsOpen }: DialogProps) => {
         <Button
           className="w-full p-2.5 bg-amber-400"
           fontSize="bold"
-          onClick={() => setIsOpen(false)}
+          onClick={onCloseDialog}
         >
           OK
         </Button>

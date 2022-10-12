@@ -4,12 +4,12 @@ import { Fragment } from "react";
 import { DialogWrapperProps } from "./type";
 
 export const DialogWrapper = ({
-  isOpen,
+  show,
   onClose,
   children,
 }: DialogWrapperProps) => {
   return (
-    <Transition appear show={isOpen} as={Fragment}>
+    <Transition appear show={show} as={Fragment}>
       <DialogHeadlessUI as="div" className="relative z-10" onClose={onClose}>
         <Transition.Child
           as={Fragment}
