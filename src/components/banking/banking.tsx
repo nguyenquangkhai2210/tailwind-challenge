@@ -14,11 +14,16 @@ export const Banking = ({
 }: BankingProps) => {
   const [amount, setAmount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [isNotValid, setNotValid] = useState(false);
 
   const handlePayment = () => {
-    handleSubmit({ amount });
-    setIsOpen(true);
-    setAmount(0);
+    if (amount) {
+      setIsOpen(true);
+      handleSubmit({ amount });
+      setAmount(0);
+    } else {
+      setNotValid(true);
+    }
   };
 
   return (
@@ -51,7 +56,20 @@ export const Banking = ({
         <DialogSuccess show={isOpen} onCloseDialog={() => setIsOpen(false)} />
       ) : null}
       {error && isOpen ? (
-        <DialogError show={isOpen} onCloseDialog={() => setIsOpen(false)} />
+        <DialogError
+          title="Đã có lỗi thanh toán"
+          description="Thanh toán thất bại. Vui lòng thử lại"
+          show={isOpen}
+          onCloseDialog={() => setIsOpen(false)}
+        />
+      ) : null}
+      {isNotValid ? (
+        <DialogError
+          title="Chưa chọn khoản tiền"
+          description="Vui lòng chọn khoản tiền cần thanh toán."
+          show={isNotValid}
+          onCloseDialog={() => setNotValid(false)}
+        />
       ) : null}
     </div>
   );

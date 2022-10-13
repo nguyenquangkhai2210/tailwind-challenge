@@ -5,8 +5,19 @@ import { DialogWrapper } from "./dialog-wrapper";
 import { DialogProps } from "./type";
 import { Button } from "../button";
 import { Text } from "../text";
+import { type } from "os";
 
-export const DialogError = ({ show, onCloseDialog }: DialogProps) => {
+type DialogErrorProps = DialogProps & {
+  title: string;
+  description: string;
+};
+
+export const DialogError = ({
+  show,
+  onCloseDialog,
+  title,
+  description,
+}: DialogErrorProps) => {
   return (
     <DialogWrapper show={show} onClose={onCloseDialog}>
       <div className="w-full bg-white p-6 text-left align-middle shadow-xls">
@@ -14,11 +25,9 @@ export const DialogError = ({ show, onCloseDialog }: DialogProps) => {
           <IconError />
         </div>
         <Title className="mt-4" color="gray-700" size="2xl">
-          Đã có lỗi thanh toán
+          {title}
         </Title>
-        <Text className="mt-3 mb-10">
-          Thanh toán thất bại. Vui lòng thử lại
-        </Text>
+        <Text className="mt-3 mb-10">{description}</Text>
         <Button
           className="w-full p-2.5 bg-amber-400"
           fontSize="bold"
