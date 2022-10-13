@@ -13,7 +13,7 @@ export const SnackbarSuccess = ({
         <div className="flex items-center gap-3.5 text-base">
           <IconCheckCircle /> Đã copy số tài khoản
         </div>
-        <IconVector />
+        <IconVector onClick={onCloseSnackbar} />
       </div>
     </SnackbarWrapper>
   );

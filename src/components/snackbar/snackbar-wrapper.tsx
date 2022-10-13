@@ -9,9 +9,14 @@ export const SnackbarWrapper = ({
   children,
 }: SnackbarWrapperProps) => {
   useEffect(() => {
+    let timeToClose;
+
     if (show) {
-      setTimeout(onClose, 1500);
+      timeToClose = setTimeout(onClose, 1500);
     }
+    return () => {
+      clearTimeout(timeToClose);
+    };
   }, [show]);
 
   return (
