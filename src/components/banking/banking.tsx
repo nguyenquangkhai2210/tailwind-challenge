@@ -18,6 +18,7 @@ export const Banking = ({
   const handlePayment = () => {
     handleSubmit({ amount });
     setIsOpen(true);
+    setAmount(0);
   };
 
   return (
@@ -27,7 +28,9 @@ export const Banking = ({
         {defaultMoneyBanking.map((moneyValue) => (
           <Button
             key={moneyValue}
-            className="py-3.5 my-1 w-[6.5rem]"
+            className={`py-3.5 my-1 w-[6.5rem] ${
+              amount === moneyValue ? "bg-slate-100" : null
+            }`}
             onClick={() => setAmount(moneyValue)}
           >
             {moneyValue.toLocaleString("it-IT")}đ
