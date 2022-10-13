@@ -19,6 +19,7 @@ export const Banking = ({
     handleSubmit({ amount });
     setIsOpen(true);
   };
+
   return (
     <div className="flex flex-col h-full">
       <Title className="flex-initial py-3">Chọn số tiền quyên góp</Title>

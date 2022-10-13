@@ -16,7 +16,7 @@ export const SnackbarWrapper = ({
 
   return (
     <Transition appear show={show} as={Fragment}>
-      <div className="flex min-h-full items-center justify-center p-3 text-center">
+      <div className="flex items-center justify-center p-3 text-center">
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"

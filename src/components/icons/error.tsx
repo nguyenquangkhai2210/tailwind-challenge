@@ -1,10 +1,11 @@
-export const IconError = () => (
+export const IconError = (props: JSX.IntrinsicElements["svg"]) => (
   <svg
     width="24"
     height="23"
     viewBox="0 0 24 23"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
       fill-rule="evenodd"

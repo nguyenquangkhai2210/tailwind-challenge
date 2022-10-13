@@ -1,6 +1,8 @@
 export abstract class IAPI {
   abstract getBankInfo(): Promise<GetBankInfoResponse>;
-  abstract submitCardPayment(data: SubmitCardPaymentRequest): Promise<any>;
+  abstract submitCardPayment(
+    data: SubmitCardPaymentRequest
+  ): Promise<SubmitCardPaymentResponse>;
 }
 
 export type GetBankInfoResponse = {

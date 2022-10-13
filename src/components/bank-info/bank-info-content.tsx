@@ -14,6 +14,12 @@ export const BankInfoContent = ({
   name,
   onOpenSnackBar,
 }: BankInfoContentProps) => {
+  const handleCopy = () => {
+    navigator.clipboard.writeText(`${account}`);
+
+    onOpenSnackBar(true);
+  };
+
   return (
     <div className="bg-white p-3">
       <Title className="px-1 py-1" size="xs">
@@ -29,7 +35,7 @@ export const BankInfoContent = ({
         </div>
         <Button
           className="py-1.5 px-4 font-bold bg-neutral-200 shadow-none"
-          onClick={() => onOpenSnackBar(true)}
+          onClick={handleCopy}
         >
           Copy STK
         </Button>

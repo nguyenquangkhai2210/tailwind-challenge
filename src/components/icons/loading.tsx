@@ -1,4 +1,4 @@
-export const IconLoading = () => (
+export const IconLoading = (props: JSX.IntrinsicElements["svg"]) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -6,6 +6,7 @@ export const IconLoading = () => (
     stroke-width="1.5"
     stroke="currentColor"
     className="w-6 h-6 animate-spin"
+    {...props}
   >
     <path
       stroke-linecap="round"
